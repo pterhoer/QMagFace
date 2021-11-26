@@ -13,7 +13,6 @@
 ## Table of Contents 
 
 - [Abstract](#abstract)
-- [Key Points](#key-points)
 - [Results](#results)
 - [Installation](#installation)
 - [Citing](#citing)
@@ -28,17 +27,6 @@ Face recognition systems have to deal with large variabilities (such as differen
 
 
 
-
-## Key Points
-
-todo
-
-To summarize, the proposed Pixel-Level Quality Assessment approach 
-- can be applied on arbitrary FR networks,
-- does not require training, 
--  and provides a pixel-level utility description of an input face explaining how well pixels in a face image are suited for recognition (prior to any matching).
-
-The solution can explain why an image cannot be used as a reference image during the acquisition/enrolment process and in which area of the face the subject have to do changes to increase the quality. Consequently, PLQ maps provide guidance on the reasons behind low quality images, and thus can provide interpretable instructions to improve the FIQ.
 
 
 ## Results
@@ -75,7 +63,7 @@ similar to the optimal functions of the others.
 ## Installation
 to do Malte
 
-
+only QMagFace-100
 
 
 
