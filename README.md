@@ -50,19 +50,19 @@ Third, we analyse the optimal quality weight over a wide threshold range to demo
 
 In the following, we will only show some results. For more details and dicussions, please take a look at the paper.
 
-
+<img src="Table_Benchmarks.png " height = "450" align = "right" > 
 
 **Performance on face recognition benchmarks** - The face recognition performance on the four benchmarks is reported in terms of benchmark accuracy (%). The
 highest performance is marked bold. The proposed approach, QMagFace-100, achieves state-of-the-art face recognition performance, especially in cross-age (AgeDB), cross-pose (CFP-FP), and cross-quality (XQLFW) scenarios.
 Since the FIQ captures these challenging conditions and the quality values represent the utility of the images for our specific network, the proposed quality-aware comparison score can specifically address the circumstance and their effect on the network. 
 Consequently, it performs highly accurate in the cross-age, cross-pose, and cross-quality scenarios and achieves state-of-the-art performances.
 
-<img src="Table_Benchmarks.png "  > 
+
 
 **Face recognition performance over a wide range of FMRs** - The face recognition performance is reported in terms of FNMR [%] over a wide range of FMRs. The MagFace and the proposed QMagFace approach are compared for three backbone architectures on three databases. The better values between both approaches are highlighted in
 bold. In general, the proposed quality-aware solutions constantly improve the performance, often by a large margin. This is especially true for QMagFace based on the iResNet-100 backbone.
 
-<img src="Table_QualityAwareness.png"  > 
+<img src="Table_QualityAwareness.png" height = "450" > 
 
 **Robustness analysis** - The optimal quality weight for different decision thresholds is reported on four databases. 
 Training on different databases lead to similar linear solutions for the quality-weighting function. The results demonstrate that (a) the choice of a linear function
