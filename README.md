@@ -22,12 +22,16 @@
 
 ## Abstract
 
+<img src="visualization with explanation.png" height="470" align="right">
+
 Face recognition systems have to deal with large variabilities (such as different poses, illuminations, and expressions) that might lead to incorrect matching decisions. These variabilities can be measured in terms of face image quality which is defined over the utility of a sample for recognition. Previous works on face recognition either do not employ this valuable information or make use of noninherently fit quality estimates. In this work, we propose a simple and effective face recognition solution (QMag- Face) that combines a quality-aware comparison score with a recognition model based on a magnitude-aware angular margin loss. The proposed approach includes modelspecific face image qualities in the comparison process to enhance the recognition performance under unconstrained circumstances. Exploiting the linearity between the qualities and their comparison scores induced by the utilized loss, our quality-aware comparison function is simple and highly generalizable. The experiments conducted on several face recognition databases and benchmarks demonstrate that the introduced quality-awareness leads to consistent improvements in the recognition performance. Moreover, the proposed QMagFace approach performs especially well under challenging circumstances, such as crosspose, cross-age, or cross-quality. Consequently, it leads to state-of-the-art performances on several face recognition benchmarks, such as 98.50% on AgeDB, 83.97% on XQLFQ, and 98.74% on CFP-FP.
 
 
-<img src="Overview.png" height="450">
+
 
 ## Key Points
+
+todo
 
 To summarize, the proposed Pixel-Level Quality Assessment approach 
 - can be applied on arbitrary FR networks,
@@ -39,11 +43,13 @@ The solution can explain why an image cannot be used as a reference image during
 
 ## Results
 
-The proposed pixel-level quality estimation approach is analysed from two directions. First, low-quality face images with low-quality areas, such as occlusions, are localised and inpainted to demonstrate that this improves the face image quality. Second, random masks are placed on high-quality faces to show that the proposed methodology identifies these as low-quality areas. Both evaluation approaches, enhancing low-quality images and degrading high-quality images,
-aim at quantitatively (via quality-changes) and qualitatively (via changes in the PLQ-maps) investigating the effectiveness of the proposed PLQA approach. Lastly, the
-PLQ-maps are investigated on ICAO-incompliant faces.
+The proposed approach is analysed in three steps. 
+First, we report the performance of QMagFace on six face recognition benchmarks against ten recent state-of-the-art methods in image- and video-based recognition tasks to provide a comprehensive comparison with state-of-the-art. 
+Second, we investigate the face recognition performance of QMagFace over a wide FMR range to show its suitability for a wide variety of applications and to demonstrate that the quality-aware comparison score constantly enhances the recognition performance. 
+Third, we analyse the optimal quality weight over a wide threshold range to demonstrate the robustness of the training process and the generalizability of the proposed approach.
 
-In the following, we will focus on some qualitative results. For more details and quanitative results, please take a look the paper.
+In the following, we will only show some results. For more details and dicussions, please take a look at the paper.
+
 
 
 **PLQ explanation maps before and after inpainting** - Images before and after the inpainting process are shown with their
