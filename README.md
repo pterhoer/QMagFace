@@ -52,13 +52,12 @@ In the following, we will only show some results. For more details and dicussion
 
 
 
-**PLQ explanation maps before and after inpainting** - Images before and after the inpainting process are shown with their
-corresponding PLQ-maps and FIQ values. The images show the effect of small and large occlusions, glasses, headgears, and beards on the
-PLQ-maps for two FR models. In general, these are identified as areas of low pixel-quality and inpainting these areas strongly increases
-the pixel-qualities of these areas as well as the FIQ. This demonstrates that our solution leads to reasonable pixel-level quality estimates
-and thus can give interpretable recommendations on the causes of low quality estimates.
+**Performance on Face Recognition Benchmarks** - The face recognition performance on the four benchmarks is reported in terms of benchmark accuracy (%). The
+highest performance is marked bold. The proposed approach, QMagFace-100, achieves state-of-the-art face recognition performance, especially in cross-age (AgeDB), cross-pose (CFP-FP), and cross-quality (XQLFW) scenarios.
+Since the FIQ captures these challenging conditions and the quality values represent the utility of the images for our specific network, the proposed quality-aware comparison score can specifically address the circumstance and their effect on the network. 
+Consequently, it performs highly accurate in the cross-age, cross-pose, and cross-quality scenarios and achieves state-of-the-art performances.
 
-<img src="Results ArcFace Inpainting.png"  > 
+<img src="Table_Benchmarks.png "  > 
 
 **PLQ-explanation maps for random masks** - For two random identities, their masked and unmasked images are shown with
 their corresponding PLQ-maps. In general, the effect of the mask on the PLQ-map is clearly visible demonstrating the effectiveness of the
