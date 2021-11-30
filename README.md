@@ -5,8 +5,8 @@
 
 ## QMagFace: Simple and Accurate Quality-Aware Face Recognition
 
-* [Research Paper](https://arxiv.org/abs/2110.11001) todo
-* [Implementation on ArcFace](face_image_quality.py) todo
+* [Research Paper](https://arxiv.org/abs/2111.13475)
+* [Implementation(face_image_quality.py) - ToDo
 
 
 
@@ -61,9 +61,7 @@ similar to the optimal functions of the others.
 
 
 ## Installation
-to do Malte
-
-only QMagFace-100
+To be done soon
 
 
 
@@ -72,26 +70,22 @@ only QMagFace-100
 
 If you use this code, please cite the following paper.
 
-todo
-
 ```
-@article{DBLP:journals/corr/abs-2110-11001,
+@article{QMagFace,
   author    = {Philipp Terh{\"{o}}rst and
+               Malte Ihlefeld and
                Marco Huber and
                Naser Damer and
                Florian Kirchbuchner and
                Kiran Raja and
                Arjan Kuijper},
-  title     = {Pixel-Level Face Image Quality Assessment for Explainable Face Recognition},
+  title     = {{QMagFace}: Simple and Accurate Quality-Aware Face Recognition},
   journal   = {CoRR},
-  volume    = {abs/2110.11001},
+  volume    = {abs/2111.13475},
   year      = {2021},
-  url       = {https://arxiv.org/abs/2110.11001},
+  url       = {https://arxiv.org/abs/2111.13475},
   eprinttype = {arXiv},
-  eprint    = {2110.11001},
-  timestamp = {Thu, 28 Oct 2021 15:25:31 +0200},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2110-11001.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
+  eprint    = {2111.13475},
 }
 ```
 
