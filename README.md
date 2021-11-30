@@ -6,7 +6,7 @@
 ## QMagFace: Simple and Accurate Quality-Aware Face Recognition
 
 * [Research Paper](https://arxiv.org/abs/2111.13475)
-* [Implementation(face_image_quality.py) - ToDo
+* [Implementation](face_image_quality.py) - ToDo
 
 
 
