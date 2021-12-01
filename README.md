@@ -1,4 +1,4 @@
-# Explainable Face Image Quality
+# Quality-Aware Face Recognition
 
 ***26.11.2021*** _start readme_
 
