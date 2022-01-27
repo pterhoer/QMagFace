@@ -1,4 +1,5 @@
 import sklearn
+import sklearn.preprocessing
 import numpy as np
 from similarity.base import Similarity
 

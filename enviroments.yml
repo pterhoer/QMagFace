@@ -1,0 +1,17 @@
+name: QMagFace
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - pytorch
+  - torchvision
+  - cudatoolkit=11.3
+  - tensorflow-gpu
+  - scikit-learn
+  - scikit-image
+  - mtcnn
+  - tqdm
+  - pip:
+      - opencv-contrib-python
+      - loguru

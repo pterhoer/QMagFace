@@ -5,9 +5,9 @@ from similarity.qmagface import QMagFace
 
 
 def test_cplfw():
-    pairs_path = '_test_data/Pairs/cplfw_pairs.txt'
-    embeddings_path = '_test_data/MagFace100/embeddings_cplfw.npy'
-    filenames_path = '_test_data/MagFace100/filenames_cplfw.npy'
+    pairs_path = '_data/pairs/cplfw_pairs.txt'
+    embeddings_path = '_data/magface100/embeddings_cplfw.npy'
+    filenames_path = '_data/magface100/filenames_cplfw.npy'
     qmagface = QMagFace(0.077428, 0.125926)
     filenames = np.load(filenames_path)
     embeddings = np.load(embeddings_path)
