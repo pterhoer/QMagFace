@@ -14,9 +14,8 @@ def main(args):
     oembs = np.load('_data/magface100/embeddings_lfw.npy')
     ofns = np.load('_data/magface100/filenames_lfw.npy')
     sims = sim.similarity(embs, oembs)
-
-    src_filenames = list_all_files_from_path(args.src_dir)
-    aligned_filenames = align_images(src_filenames, args.src_dir, args.int_dir)
+    print('Aligning Images')
+    aligned_filenames = align_images(args.src_dir, args.int_dir)
     filenames, embeddings = generate_embeddings(aligned_filenames, args)
     np.save(args.emb_file, embeddings)
     np.save(args.emb_file.replace('emb', 'fns'), filenames)
