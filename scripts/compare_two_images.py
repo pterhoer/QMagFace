@@ -2,19 +2,14 @@ import argparse
 from similarity.qmagface import QMagFace
 from similarity.cosine import Cosine
 from magface.inference.generate_embeddings import generate_embeddings
+from utils.setup import add_magface_args
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--file_a', type=str, help='Path to the first image to compare.')
     parser.add_argument('--file_b', type=str, help='Path to the second image for comparison.')
-    parser.add_argument('--resume', type=str, help='Path to the MagFace model checkpoint')
-    parser.add_argument('--arch', type=str, default='iresnet100',
-                        help='Model architecture. iresnet18, iresnet50 or iresnet100')
-    parser.add_argument('--cpu_mode', action='store_true', help='Use the CPU.')
-    parser.add_argument('--embedding_size', type=int, default=512)
-    parser.add_argument('--batch_size', type=int, default=2)
-    parser.add_argument('--workers', type=int, default=1)
+    add_magface_args(parser)
     args = parser.parse_args()
     filenames = [args.file_a, args.file_b]
     _, embs = generate_embeddings(filenames, args)

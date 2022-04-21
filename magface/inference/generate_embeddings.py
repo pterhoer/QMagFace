@@ -62,13 +62,9 @@ def generate_embeddings(filenames, args):
         pin_memory=True,
         shuffle=False)
 
-    embeddings = None
+    embeddings = []
     with torch.no_grad():
         for input_, img_paths in tqdm.tqdm(loader, total=len(loader)):
             embedding = magface(input_[0]).detach().cpu().numpy()
-            if embeddings is None:
-                embeddings = embedding
-            else:
-                embeddings = np.concatenate([embeddings, embedding])
-
-    return filenames, embeddings
+            embeddings.append(embedding)
+    return filenames, np.concatenate(embeddings)
