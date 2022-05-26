@@ -40,7 +40,6 @@ def generate_embeddings(filenames, args):
     Generates the embeddings for the given
     :param filenames:
     :param args:
-    :param filename_to_id_func:
     :return:
     """
     filenames = np.array(filenames)

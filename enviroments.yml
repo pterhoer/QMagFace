@@ -4,14 +4,16 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - python=3.8
+  - pip=21
   - pytorch
   - torchvision
-  - cudatoolkit=11.3
-  - tensorflow-gpu
+  - cudatoolkit=10.2
   - scikit-learn
   - scikit-image
-  - mtcnn
   - tqdm
+  - termcolor
   - pip:
       - opencv-contrib-python
       - loguru
+      - mxnet-cu102mkl

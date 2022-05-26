@@ -12,16 +12,16 @@ class QMagFace(Similarity):
         self.beta = beta
         self.alpha = alpha
 
-    def similarity(self, f1, f2):
-        s, q = self._compute_s_q(f1, f2)
+    def similarity(self, f, pair_indices):
+        s, q = self._compute_s_q(f, pair_indices)
         omega = self.beta * s - self.alpha
         omega[omega >= 0] = 0
         return omega * q + s
 
-    def train(self, f1, f2, y, weights_num=20, fmr_num=50, fmr_min=1e-5, fmr_max=1e-2, max_ratio=0.5):
+    def train(self, f, pair_indices, y, weights_num=20, fmr_num=50, fmr_min=1e-5, fmr_max=1e-2, max_ratio=0.5):
         # fmr_num logarithmically spaced values from the given range of FMRs
         fmrs = np.logspace(np.log10(fmr_min), np.log10(fmr_max), num=fmr_num)
-        s, q = self._compute_s_q(f1, f2)
+        s, q = self._compute_s_q(f, pair_indices)
         max_q = np.max(q)
         max_omega = max_ratio / max_q
         # The list of quality weights we consider as possible solutions
@@ -71,9 +71,8 @@ class QMagFace(Similarity):
         return m, b
 
     @staticmethod
-    def _compute_s_q(f1, f2):
-        f1_normed, q1 = sklearn.preprocessing.normalize(f1, return_norm=True)
-        f2_normed, q2 = sklearn.preprocessing.normalize(f2, return_norm=True)
-        s = Cosine.similarity(f1_normed, f2_normed, is_normed=True)
-        q = np.min(np.stack([q1, q2]), 0)
+    def _compute_s_q(f, pair_indices):
+        f, q = sklearn.preprocessing.normalize(f, return_norm=True)
+        s = Cosine.similarity(f, pair_indices, is_normed=True)
+        q = np.min(q[pair_indices], 1)
         return s, q
