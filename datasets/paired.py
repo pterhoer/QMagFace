@@ -104,13 +104,13 @@ def pair(filenames, ids, pairs_path, db):
 
 
 class PairDataset:
-    def __init__(self, single_dataset: typing.Union[SingleDataset, tuple], pairs_file, pairs_function=pair):
+    def __init__(self, single_dataset: typing.Union[SingleDataset, tuple], pairs_file=None, pairs_function=pair):
         """
         Generates a dataset of genuine and imposter pairs with the underlying single dataset
         :param single_dataset: the dataset to use for generating pairs. Can also be the arguments for constructing a
         SingleDataset.
         :param pairs_file: path to the pairing file which defines all genuine and imposter pairs.
-        :param pairs_function: the function which reads the pairs_file and converts it into indices for the embeddings.
+        :param pairs_function: the function which reads the pairs_file and converts it into indices for the single_images.
         """
         if isinstance(single_dataset, tuple):
             single_dataset = SingleDataset(*single_dataset)

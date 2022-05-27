@@ -37,7 +37,7 @@ class ImgInfLoader(data.Dataset):
 
 def generate_embeddings(filenames, args):
     """
-    Generates the embeddings for the given
+    Generates the single_images for the given
     :param filenames:
     :param args:
     :return:

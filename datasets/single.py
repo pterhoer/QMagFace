@@ -38,13 +38,13 @@ def filenames_to_ids(filenames, db):
 class SingleDataset:
     def __init__(self, root, db, filename_to_id_func=filenames_to_ids, model=''):
         """
-        Loads the necessary files to create a dataset of embeddings and person ids.
+        Loads the necessary files to create a dataset of single_images and person ids.
         :param root: root to the location where the numpy files are saved. Each db consists of 2 files, the filenames
-        file and the embeddings file, the names should then be filenames_[db].npy and embeddings_[db].npy.
+        file and the single_images file, the names should then be filenames_[db].npy and embeddings_[db].npy.
         :param db: The name of the image database.
         :param filename_to_id_func: if you have a different filename structure than the one that is assumed by the
         implemented function, you can code your own function which converts filenames into ids for each person.
-        :param model: Optional parameter to save the name of the model which computed the embeddings.
+        :param model: Optional parameter to save the name of the model which computed the single_images.
         """
         self.embeddings = np.load(os.path.join(root, f'embeddings_{db}.npy'))
         self.filenames = np.load(os.path.join(root, f'filenames_{db}.npy'))
