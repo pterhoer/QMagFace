@@ -1,7 +1,12 @@
+import re
 import typing
 
 from .single import SingleDataset
 import numpy as np
+
+
+def get_prefix(filenames, from_back):
+    return '/'.join(filenames[0].split('/')[:-from_back])
 
 
 def generate_pairs(labels, n=5, limit=10):
@@ -35,6 +40,7 @@ def generate_pairs(labels, n=5, limit=10):
 def _get_lfw_pairs(filenames, pairs_path, db):
     pairs = []
     matches = []
+    prefix = get_prefix(filenames, 2)
     with open(pairs_path) as file:
         lines = file.readlines()
     for line in lines:
@@ -48,9 +54,8 @@ def _get_lfw_pairs(filenames, pairs_path, db):
         elif len(split) == 4:
             name_a, id_a, name_b, id_b = split
             genuine = 0
-        extra_layer = lambda x: "" if db == 'lfw' else f"{x}\\"
-        filename_a = f"./{db}/{extra_layer(name_a)}{name_a}_{int(id_a):04d}.jpg"
-        filename_b = f"./{db}/{extra_layer(name_b)}{name_b}_{int(id_b):04d}.jpg"
+        filename_a = f"{prefix}/{name_a}/{name_a}_{int(id_a):04d}.jpg"
+        filename_b = f"{prefix}/{name_b}/{name_b}_{int(id_b):04d}.jpg"
         try:
             idx_a = np.where(filename_a == filenames)[0][0]
             idx_b = np.where(filename_b == filenames)[0][0]
@@ -59,6 +64,7 @@ def _get_lfw_pairs(filenames, pairs_path, db):
         except:
             pass
     return np.array(pairs), np.array(matches)
+
 
 def _get_cfp_agedb_pairs(filenames, pairs_path, db):
     pms = np.loadtxt(pairs_path, delimiter=' ')

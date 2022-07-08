@@ -8,12 +8,13 @@ dependencies:
   - pip=21
   - pytorch
   - torchvision
-  - cudatoolkit=10.2
+  - cudatoolkit=11.3
   - scikit-learn
   - scikit-image
   - tqdm
   - termcolor
+  - click
   - pip:
       - opencv-contrib-python
       - loguru
-      - mxnet-cu102mkl
+      - mxnet-native

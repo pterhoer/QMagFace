@@ -3,6 +3,8 @@ import re
 
 import numpy as np
 
+import utils.files
+
 
 def _get_generic_labels(filenames, split, split_idx):
     labels = np.array([int(re.split(r'[/\\]', path)[-1].split(split)[split_idx]) for path in filenames])
@@ -48,6 +50,7 @@ class SingleDataset:
         """
         self.embeddings = np.load(os.path.join(root, f'embeddings_{db}.npy'))
         self.filenames = np.load(os.path.join(root, f'filenames_{db}.npy'))
+        self.filenames = np.array(list(map(utils.files.convert_backslashes, self.filenames)))
         self.db = db
         self.model = model
         self.ids = filename_to_id_func(self.filenames, db)
