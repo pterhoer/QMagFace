@@ -61,7 +61,12 @@ similar to the optimal functions of the others.
 
 
 ## Installation
-To be done soon
+If you just want to rerun the experiments, or you have your own MagFace embeddings already computed follow these steps:
+1. Download our precomputed MagFace embeddings from... and place them in ``_data/single_images``
+2. Download the pair_files from ... and extract them to ``_data/pairs``
+3. Create an environment with ``conda env create -f precomputed.yml``
+4. If you have your own pairs file, or a database with a special filename format, you can implement your own functions
+for handling these cases.
 
 
 

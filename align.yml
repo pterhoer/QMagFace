@@ -1,14 +1,11 @@
-name: QMagFace
+name: QMagFaceAlign
 channels:
-  - pytorch
   - conda-forge
   - defaults
 dependencies:
   - python=3.8
   - pip=21
-  - pytorch
-  - torchvision
-  - cudatoolkit=11.3
+  - cudatoolkit=10.2
   - scikit-learn
   - scikit-image
   - tqdm
@@ -17,4 +14,4 @@ dependencies:
   - pip:
       - opencv-contrib-python
       - loguru
-      - mxnet-native
+      - mxnet-cu102

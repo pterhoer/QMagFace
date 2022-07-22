@@ -101,11 +101,11 @@ def pair(filenames, ids, pairs_path, db):
     if pairs_path is None:
         pairs, matches = generate_pairs(ids)
     elif db == 'lfw' or db == 'xqlfw':
-        pairs, matches = _get_lfw_pairs(filenames, f'../_data/Pairs/{db}_pairs.txt', db)
+        pairs, matches = _get_lfw_pairs(filenames, pairs_path, db)
     elif db == 'agedb' or db == 'cfp':
-        pairs, matches = _get_cfp_agedb_pairs(filenames, f'../_data/Pairs/{db}_pairs.txt', db)
+        pairs, matches = _get_cfp_agedb_pairs(filenames, pairs_path, db)
     elif db == 'calfw' or db == 'cplfw':
-        pairs, matches = _get_cxlfw_pairs(filenames, f'../_data/Pairs/{db}_pairs.txt', db)
+        pairs, matches = _get_cxlfw_pairs(filenames, pairs_path, db)
     return pairs, matches
 
 

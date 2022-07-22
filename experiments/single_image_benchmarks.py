@@ -28,7 +28,7 @@ def main(train_db, alpha, beta, dataset_root, pairs_root, test_db):
     qmf_accs = []
     cos_accs = []
     for db in tqdm.tqdm(test_db):
-        pairs_file = os.path.join(pairs_root, f'{test_db}_pairs.txt')
+        pairs_file = os.path.join(pairs_root, f'{db}_pairs.txt')
         pds = PairDataset((dataset_root, db), pairs_file)
         qmf_scores = qmf.similarity(pds.embeddings, pds.pairs)
         cos_scores = Cosine.similarity(pds.embeddings, pds.pairs)
