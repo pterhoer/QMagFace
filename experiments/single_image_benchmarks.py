@@ -7,13 +7,6 @@ from datasets.paired import PairDataset
 from evaluation.metrics import evaluate_metrics
 
 
-@click.command()
-@click.option('--train_db', default=None, type=click.Choice(['colorferet', 'adience', 'morph']))
-@click.option('--alpha', default=None, type=float)
-@click.option('--beta', default=None, type=float)
-@click.option('-r', '--dataset_root', default='../_data/single_images/magface100', type=click.Path(exists=True))
-@click.option('-p', '--pairs_root', default='../_data/pairs', type=click.Path(exists=True))
-@click.option('-t', '--test_db', type=click.Choice(['agedb', 'calfw', 'cfp', 'cplfw', 'lfw', 'xqlfw']), multiple=True)
 def main(train_db, alpha, beta, dataset_root, pairs_root, test_db):
     qmf = QMagFace()
     if alpha is not None and beta is not None:
@@ -40,7 +33,3 @@ def main(train_db, alpha, beta, dataset_root, pairs_root, test_db):
     print('db', 'QMagFace', 'Cosine', sep='\t')
     for db, qmf_acc, cos_acc in zip(test_db, qmf_accs, cos_accs):
         print(f'{db}\t{qmf_acc:.2f}\t{cos_acc:.2f}')
-
-
-if __name__ == '__main__':
-    main()

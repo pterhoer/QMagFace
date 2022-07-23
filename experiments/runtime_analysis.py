@@ -6,10 +6,10 @@ from similarity.cosine import Cosine
 from similarity.qmagface import QMagFace
 
 
-def main():
+def main(train_db, dataset_root):
     runs = 10
-    db = 'adience'
-    pds = PairDataset(SingleDataset('../_data/magface100/', db), None)
+    db = train_db
+    pds = PairDataset(SingleDataset(dataset_root, db), None)
     print(f'Database: {db}')
     print(f'Runs: {runs}')
     print(f'Number of Pairs: {len(pds.pairs)}')
@@ -34,7 +34,3 @@ def main():
     print(f'Training took on average: {sum(train_times) / runs:.4f}s')
     print(f'Cosine evaluation took on average: {sum(cos_eval_times) / runs:.4f}s')
     print(f'QMagFace evaluation took on average: {sum(qmf_eval_times) / runs:.4f}s')
-
-
-if __name__ == '__main__':
-    main()

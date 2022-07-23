@@ -28,9 +28,10 @@ def preprocess(det, img):
 @click.option('--result_dir', '-r', type=click.Path())
 @click.option('--source_dir', '-s', type=click.Path())
 def main(result_dir, source_dir):
+    dir_path = os.path.dirname(os.path.realpath(__file__))
     os.makedirs(result_dir, exist_ok=True)
     det = MtcnnDetector(
-        model_folder='../_models/mtcnn-model/',
+        model_folder=os.path.join(dir_path, '../_models/mtcnn-model/'),
         accurate_landmark=True,
         minsize=50,
         threshold=[0.6, 0.7, 0.8]

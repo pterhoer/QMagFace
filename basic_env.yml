@@ -1,0 +1,15 @@
+name: QMagFaceBasic
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - pip=21
+  - scikit-learn
+  - prettytable
+  - tqdm
+  - termcolor
+  - click
+  - pandas
+  - pip:
+      - menpo

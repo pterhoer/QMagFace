@@ -62,12 +62,46 @@ similar to the optimal functions of the others.
 
 ## Installation
 If you just want to rerun the experiments, or you have your own MagFace embeddings already computed follow these steps:
-1. Download our precomputed MagFace embeddings from... and place them in ``_data/single_images``
-2. Download the pair_files from ... and extract them to ``_data/pairs``
-3. Create an environment with ``conda env create -f precomputed.yml``
-4. If you have your own pairs file, or a database with a special filename format, you can implement your own functions
+1. Download our precomputed MagFace embeddings from [here](https://drive.google.com/file/d/1ElwkUKFs6-4JEwRnsKh6fJLp00x_FOvS/view?usp=sharing) and place them in ``_data/single_images``
+and place the `_data` directory in the content roots. The file directory should look like this:
+```
+QMagFace
+    _data
+        ijb
+        pairs
+        single_images
+    datasets
+    ...
+```
+2. Create an environment with `conda env create -f basic_env.yml`
+3. If you have your own pairs file, or a database with a special filename format, you can implement your own functions
 for handling these cases.
 
+## Experiments
+To evaluate the lfw-like benchmarks run launch_experiments.py with --experiments name. For example, to run the single
+image benchmarks, with training on adience, run
+```
+python launch_experiments.py --experiment single_image --train_db adience -t agedb -t calfw -t cfp -t lfw -t xqlfw
+```
+Or recompute our results by using the precomputed alpha and beta values 
+```
+python launch_experiments.py --experiment single_image --alpha 0.077428 --beta 0.125926 -t agedb -t calfw -t cfp -t lfw -t xqlfw
+```
+
+To run the robustness analysis from our paper run
+```
+python launch_experiments.py --experiments robustness 
+```
+
+To convince yourself that our method runs quickly, run the runtime analysis with
+```
+python launch_experiments.py --experiment runtime --train_db adience
+```
+
+For memory consumption check out
+```
+python launch_experiments.py --experiment memory --train_db adience
+```
 
 
 

@@ -5,10 +5,7 @@ from similarity.qmagface import QMagFace
 from evaluation.metrics import evaluate_metrics
 
 
-def main():
-    result_path = '../_results/robustness_analysis.csv'
-    paths = ['../_data/single_images/magface18', '../_data/single_images/magface50', '../_data/single_images/magface100']
-    dbs = ['lfw', 'morph', 'colorferet']
+def main(result_path, paths, dbs):
     params = [(0.092861, 0.135311), (0.065984, 0.103799), (0.077428, 0.125926)]
 
     columns = ['db', 'model', 'eer', 'fmr1e-1', 'fmr1e-2', 'fmr1e-3', 'fmr1e-4', 'fmr1e-5', 'auc']
@@ -29,7 +26,3 @@ def main():
                 df = pd.concat([df, pd.DataFrame({k: [v] for k, v in stats.items()})])
     print(df)
     df.to_csv(result_path, sep='\t')
-
-
-if __name__ == '__main__':
-    main()

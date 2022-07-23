@@ -5,10 +5,9 @@ from similarity.cosine import Cosine
 from similarity.qmagface import QMagFace
 
 
-def main():
+def main(db, dataset_root):
     tracemalloc.start()
-    db = 'adience'
-    pds = PairDataset(SingleDataset('../_data/magface100/', db), None)
+    pds = PairDataset(SingleDataset(dataset_root, db), None)
     cur, peak0 = tracemalloc.get_traced_memory()
     tracemalloc.stop()
     tracemalloc.start()
@@ -33,7 +32,3 @@ def main():
     print(f'Cosine Similarity peak Memory consumption: {peak1 / 1e6} MB')
     print(f'Training peak Memory consumption: {peak2 / 1e6} MB')
     print(f'QMagFace evaluation peak Memory consumption: {peak3 / 1e6} MB')
-
-
-if __name__ == '__main__':
-    main()
