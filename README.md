@@ -81,7 +81,8 @@ QMagFace
 ```
 3. Create an environment with `conda env create -f environment.yml`. If you do not need/want to compute your own aligned images you can remove mxnet.
 If you do not need to compute embeddings, you can remove pytorch, torchvision and cudatoolkit.
-4. If you have your own pairs file, or a database with a special filename format, you can implement your own functions
+4. After Creating the environment you might need to run ``conda install pandas`` before running the experiments.
+5. If you have your own pairs file, or a database with a special filename format, you can implement your own functions
 for handling these cases.
 
 ## Align  Images

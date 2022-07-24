@@ -16,6 +16,8 @@ dependencies:
   - torchvision
   - numpy
   - prettytable
-  - pandas
+  - matplotlib
   - pip:
       - mxnet
+      - menpo
+  - pandas
