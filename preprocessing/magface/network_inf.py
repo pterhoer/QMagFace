@@ -4,7 +4,6 @@ sys.path.append("..")
 from preprocessing.magface import iresnet
 from collections import OrderedDict
 from tqdm import tqdm
-from termcolor import cprint
 import os
 import torch.nn.functional as F
 import torch.nn as nn
@@ -50,7 +49,7 @@ class NetworkBuilder_inf(nn.Module):
 
 def load_dict_inf(args, model):
     if os.path.isfile(args.resume):
-        cprint('=> loading pth from {} ...'.format(args.resume))
+        print('=> loading pth from {} ...'.format(args.resume))
         if args.cpu_mode:
             checkpoint = torch.load(args.resume, map_location=torch.device("cpu"))
         else:
