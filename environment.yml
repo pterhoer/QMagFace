@@ -1,0 +1,21 @@
+name: QMagFace
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - pip=21
+  - scikit-image
+  - scikit-learn
+  - tqdm
+  - click
+  - opencv
+  - pytorch
+  - cudatoolkit
+  - torchvision
+  - numpy
+  - prettytable
+  - pandas
+  - pip:
+      - mxnet

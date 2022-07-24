@@ -61,8 +61,67 @@ similar to the optimal functions of the others.
 
 
 ## Installation
-To be done soon
+The environment was tested with an RTX3080 on Windows 11.
 
+1. Download our precomputed MagFace embeddings and pairs files from [here](https://drive.google.com/file/d/1ElwkUKFs6-4JEwRnsKh6fJLp00x_FOvS/view?usp=sharing) and extract them in the QMagFace root directory. 
+2. Download the MagFace100 model from [here](https://drive.google.com/file/d/1Bd87admxOZvbIOAyTkGEntsEz3fyMt7H/view) and place it in the ``_models/magface_models/`` directory. 
+The file directory should look something like this:
+```
+QMagFace
+    _data
+        ijb
+        pairs
+        single_images
+    _models
+        magface_models
+            magface_epoch_00025.pth
+        mtcnn-model
+    datasets
+    ...
+```
+3. Create an environment with `conda env create -f environment.yml`. If you do not need/want to compute your own aligned images you can remove mxnet.
+If you do not need to compute embeddings, you can remove pytorch, torchvision and cudatoolkit.
+4. If you have your own pairs file, or a database with a special filename format, you can implement your own functions
+for handling these cases.
+
+## Align  Images
+Before we can compute embeddings we have to align the images. We tried our best to recreate the same alignment process that was used for MagFace,
+however in order to recreate the results we had to get the already aligned images from ArcFace. To align the images run
+```
+python align_images.py -s path/to/source/images -r path/where/to/save/aligned/images
+```
+
+## Compute Embeddings
+Once we have a directory with aligned images we can use these images to compute our embeddings. To do so, run
+```
+python embed_images.py -s path/to/aligned/images -r directory/where/to/save/embeddings -d dataset_name -m _models/magface_models/magface_epoch_00025.pth
+```
+
+## Experiments
+To evaluate the lfw-like benchmarks run launch_experiments.py with --experiments name. For example, to run the single
+image benchmarks, with training on adience, run
+```
+python launch_experiments.py --experiment single_image --train_db adience -t agedb -t calfw -t cfp -t lfw -t xqlfw
+```
+Or recompute our results by using the precomputed alpha and beta values 
+```
+python launch_experiments.py --experiment single_image --alpha 0.077428 --beta 0.125926 -t agedb -t calfw -t cfp -t lfw -t xqlfw
+```
+
+To run the robustness analysis from our paper run
+```
+python launch_experiments.py --experiments robustness 
+```
+
+To convince yourself that our method runs quickly, run the runtime analysis with
+```
+python launch_experiments.py --experiment runtime --train_db adience
+```
+
+For memory consumption check out
+```
+python launch_experiments.py --experiment memory --train_db adience
+```
 
 
 
