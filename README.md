@@ -1,5 +1,6 @@
 # Quality-Aware Face Recognition
 
+ _Accepted at IEEE/CVF Winter Conference on Applications of Computer Vision (WACV) 2023._
 
 ## QMagFace: Simple and Accurate Quality-Aware Face Recognition
 
