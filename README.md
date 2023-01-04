@@ -4,7 +4,7 @@
 
 ## QMagFace: Simple and Accurate Quality-Aware Face Recognition
 
-* [Research Paper](https://arxiv.org/abs/2111.13475)
+* [Research Paper](https://openaccess.thecvf.com/content/WACV2023/html/Terhorst_QMagFace_Simple_and_Accurate_Quality-Aware_Face_Recognition_WACV_2023_paper.html)
 
 
 
